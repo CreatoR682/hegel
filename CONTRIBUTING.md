@@ -25,9 +25,16 @@ After making changes to the VS Code extension (`hegel-vscode`) or the schema:
 cd hegel-vscode
 npm run build
 npm run package
-cursor --install-extension hegel-companion-<version>.vsix
 ```
+
+Install the `.vsix` path printed when packaging finishes, for example from `hegel-vscode/`:
+
+```bash
+cursor --install-extension ./hegel-companion-<version>.vsix
+```
+
+Use the `version` from `hegel-vscode/package.json` (the filename is `hegel-companion-<version>.vsix`).
 
 Then fully quit and reopen Cursor so the hook runtime, MCP, and extension-host state reload cleanly.
 
-> **Warning:** Avoid running `node dist/setup.js .` in the Hegel source repo unless you intentionally want to rewrite `.cursor/hooks.json` and `.cursor/mcp.json`.
+> **Warning:** `node dist/setup.js .` (or `init .` with `--force`) rewrites `.cursor/hooks.json` and `.cursor/mcp.json` in the target project. In this repo, only run that when you intend to refresh those files (they should contain portable `dist/...` paths, not absolute paths).

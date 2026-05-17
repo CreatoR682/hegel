@@ -52,6 +52,10 @@ npx -p @hegel-dev/companion hegel-companion init .
 
 The bundled sidebar VSIX declares **`engines.vscode` ^1.105.0** with **`@types/vscode` ~1.105.0**, aligned with Cursor builds that report VS Code **1.105.x** (see `hegel-vscode/package.json`).
 
+**Current npm release:** The version in the root `package.json` is what ships to npm as [`@hegel-dev/companion`](https://www.npmjs.com/package/@hegel-dev/companion); use `CHANGELOG.md` for release notes.
+
+**Developing this repository:** After `npm run build`, `node dist/setup.js . --force` (same as `hegel-companion init . --force`) regenerates `.cursor/hooks.json` and `.cursor/mcp.json` with **repo-root-relative** `dist/hook.js` and `dist/mcp.js` paths, so those files stay portable across machines when committed.
+
 This single command will:
 1. Generate `.cursor/hooks.json` to wire up the analysis layers.
 2. Scaffold a default `hegel.config.json` in your project root.

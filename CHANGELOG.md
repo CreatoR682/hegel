@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.22] - 2026-05-17
+- docs: Refresh README and CONTRIBUTING for npm version source-of-truth, source-repo portable paths, and VSIX install flow.
+- chore: Add `homepage` and `bugs` to `package.json`; align `.cursor-plugin/plugin.json` version with the shipped release.
+
+## [1.0.21] - 2026-05-17
+- fix: Source-repo `init` now writes portable hook and MCP paths (`dist/hook.js`, `dist/mcp.js`) instead of absolute filesystem paths, so clones and open-source checkouts do not embed machine-specific locations.
+
 ## [1.0.20] - 2026-05-17
 - fix: `init` and `update` commands now explicitly verify that `@hegel-dev/companion` is installed in `node_modules` before scaffolding hooks, preventing broken one-shot installs.
 

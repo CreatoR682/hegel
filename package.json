@@ -1,6 +1,6 @@
 {
   "name": "@hegel-dev/companion",
-  "version": "1.0.20",
+  "version": "1.0.22",
   "description": "Dialectical companion for AI-assisted development — real-time critical thinking oversight for Cursor IDE sessions",
   "type": "module",
   "publishConfig": {
@@ -29,6 +29,10 @@
     "dialectical"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/CreatoR682/hegel#readme",
+  "bugs": {
+    "url": "https://github.com/CreatoR682/hegel/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/CreatoR682/hegel.git"
