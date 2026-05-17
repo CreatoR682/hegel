@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hegel Configuration",
+  "description": "Configuration for Hegel dialectical companion",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Path to the JSON schema for this config file."
+    },
+    "model": {
+      "anyOf": [
+        {
+          "enum": [
+            "auto",
+            "grok-4-20-thinking",
+            "composer-2-fast",
+            "gpt-5.2-high-fast",
+            "gpt-5.3-codex-high-fast",
+            "gpt-5.4-medium",
+            "gemini-3-flash",
+            "gemini-3.1-pro",
+            "gemini-2.5-flash",
+            "claude-4.6-opus-high-thinking",
+            "claude-opus-4-7-thinking-high"
+          ]
+        },
+        {
+          "type": "string",
+          "description": "Or type any other valid Cursor model identifier. Find the exact string in your Cursor usage dashboard (https://www.cursor.com/dashboard) — the 'Model' column there is the source of truth for identifiers Cursor's router recognizes."
+        }
+      ],
+      "description": "Model to use for Hegel's Layer 2 LLM analysis. Use 'auto' to let Cursor pick its default fast model (usually gemini-2.5-flash). For any other choice, the identifier must match Cursor's internal routing ID exactly — display names from the model picker do NOT work (e.g. 'Grok 4.20' is the display name; 'grok-4-20-thinking' is the identifier). Unknown identifiers silently suppress Layer 2 entirely.",
+      "default": "auto"
+    },
+    "enableLlmAnalysis": {
+      "type": "boolean",
+      "description": "Enable the LLM-powered deep analysis layer (Layer 2). When false, only fast rule-based checks (Layer 1) run. Uses tokens from your Cursor subscription.",
+      "default": true
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "Timeout in seconds for LLM-powered hooks.",
+      "default": 15,
+      "minimum": 5,
+      "maximum": 60
+    },
+    "strictness": {
+      "type": "string",
+      "enum": ["relaxed", "balanced", "strict"],
+      "description": "How aggressively Hegel intervenes. 'relaxed' = only obvious issues, 'balanced' = default, 'strict' = questions most prompts.",
+      "default": "balanced"
+    }
+  },
+  "additionalProperties": false
+}

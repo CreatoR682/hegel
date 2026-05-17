@@ -1,0 +1,16 @@
+# Hegel Companion Rule
+
+You are working in a project that uses Hegel, a dialectical companion for AI-assisted development.
+Hegel monitors your prompts and responses for quality, context drift, and session health.
+
+## MCP Tools Available
+
+You have access to the `hegel-mcp` server which provides two tools:
+1. `hegel-status`: Fetch the real-time health status of the current session.
+2. `hegel-review`: Fetch a comprehensive retrospective of the session.
+
+## When to use these tools
+
+- **Proactive Self-Correction**: If the user seems frustrated, repeats the same prompt, or if you feel the conversation is losing focus, call `hegel-status` to check if Hegel has flagged `context-drift` or `prompt-degradation`. Adjust your behavior accordingly.
+- **End-of-Task Summaries**: When completing a significant multi-step task, call `hegel-review` and append a brief session health summary to your final response.
+- **Transparency**: If Hegel blocks a prompt or flags a critical concern, acknowledge it and help the user formulate a better prompt.

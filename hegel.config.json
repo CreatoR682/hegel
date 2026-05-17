@@ -1,0 +1,8 @@
+{
+  "$schema": "./hegel.config.schema.json",
+  "model": "composer-2-fast",
+  "enableLlmAnalysis": true,
+  "timeoutSeconds": 15,
+  "strictness": "balanced",
+  "observeOnly": false
+}

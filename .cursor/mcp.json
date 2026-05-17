@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "hegel-mcp": {
+      "command": "node",
+      "args": [
+        "dist/mcp.js"
+      ]
+    }
+  }
+}

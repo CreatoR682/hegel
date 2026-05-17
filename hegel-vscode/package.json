@@ -1,0 +1,130 @@
+{
+  "name": "hegel-companion",
+  "displayName": "Hegel — Dialectical Companion",
+  "description": "Real-time session oversight dashboard for Hegel hooks. Shows prompt quality, response concerns, and session health.",
+  "version": "1.0.20",
+  "publisher": "hegel",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:.hegel-state"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Hegel Companion",
+      "properties": {
+        "hegel.model": {
+          "type": "string",
+          "default": "auto",
+          "description": "Model for Hegel's Layer 2 analysis. 'auto' uses Cursor's default. Other values must be exact Cursor routing identifiers (e.g. 'grok-4-20-thinking', 'composer-2-fast', 'gpt-5.2-high-fast', 'gpt-5.3-codex-high-fast', 'gpt-5.4-medium', 'gemini-3-flash', 'gemini-3.1-pro', 'claude-4.6-opus-high-thinking'). (Requires a new session to take effect)"
+        },
+        "hegel.enableLlmAnalysis": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable LLM analysis during the session. (Requires a new session to take effect)"
+        },
+        "hegel.timeoutSeconds": {
+          "type": "number",
+          "default": 15,
+          "description": "Timeout for LLM analysis in seconds. (Requires a new session to take effect)"
+        },
+        "hegel.strictness": {
+          "type": "string",
+          "enum": [
+            "relaxed",
+            "balanced",
+            "strict"
+          ],
+          "default": "balanced",
+          "description": "Strictness level for concerns. (Requires a new session to take effect)"
+        }
+      }
+    },
+    "jsonValidation": [
+      {
+        "fileMatch": "hegel.config.json",
+        "url": "./hegel-schema.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "hegel-sidebar",
+          "title": "Hegel",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "hegel-sidebar": [
+        {
+          "type": "webview",
+          "id": "hegel.dashboard",
+          "name": "Session Dashboard"
+        },
+        {
+          "id": "hegel.concerns",
+          "name": "Concerns"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "hegel.refreshDashboard",
+        "title": "Hegel: Refresh Dashboard",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "hegel.openLog",
+        "title": "Hegel: Open Log"
+      },
+      {
+        "command": "hegel.openSettings",
+        "title": "Hegel: Open Settings",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "hegel.clearHistory",
+        "title": "Hegel: Clear Session History",
+        "icon": "$(trash)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "hegel.clearHistory",
+          "when": "view == hegel.dashboard",
+          "group": "navigation@1"
+        },
+        {
+          "command": "hegel.openSettings",
+          "when": "view == hegel.dashboard",
+          "group": "navigation@2"
+        },
+        {
+          "command": "hegel.refreshDashboard",
+          "when": "view == hegel.dashboard",
+          "group": "navigation@3"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "sync-schema": "node -e \"require('fs').copyFileSync('../hegel.config.schema.json','./hegel-schema.json')\"",
+    "prepackage": "npm run sync-schema",
+    "package": "npx @vscode/vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/vscode": "~1.105.0",
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0",
+    "@vscode/vsce": "^3.9.1"
+  }
+}

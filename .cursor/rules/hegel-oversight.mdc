@@ -1,0 +1,40 @@
+---
+description: Hegel plugin self-oversight — review session logs and recent interactions to surface tuning needs
+alwaysApply: true
+---
+
+# Hegel Session Oversight
+
+You are working inside the Hegel plugin repository. Hegel is a Cursor hooks-based dialectical companion that analyzes prompt quality, response patterns, and session health.
+
+## After every response
+
+After completing your main answer, perform this analysis:
+
+1. Read `.hegel-state/hegel.log` (last ~30 lines) for recent hook activity — look at both `beforeSubmitPrompt` and `afterAgentResponse` events, noting concerns, blocks, and bypass decisions.
+2. Find the current session's JSON state file in `.hegel-state/` — match by `conversation_id` from the log entries or pick the most recently modified `.json` file.
+3. In the state JSON, review:
+   - The last 3-5 entries in `prompts[]` — read the actual prompt text and the concerns Hegel raised for each.
+   - The last 3-5 entries in `responses[]` — check textLength, concerns, and whether any were flagged as unprompted.
+   - The top-level `concerns[]` array for accumulated session-level patterns.
+4. Cross-reference: does the user's prompt *sequence* tell a story? Look for patterns like:
+   - User struggling to get past Hegel (repeated resubmits, escalating frustration).
+   - Legitimate short follow-ups being misread as prompt degradation.
+   - The user adapting their prompts to avoid triggers rather than improving quality.
+   - AI responses that deserved scrutiny but got none (or vice versa).
+
+## What to report
+
+Append a short **Hegel Status** section at the end of your response (use a horizontal rule to separate). Cover:
+
+- **False positives**: Concerns that don't make sense given the actual conversation flow (quote the prompt snippet and explain why it was misjudged).
+- **Missing detections**: Things Hegel should have caught on either input or output but didn't.
+- **User friction**: Signs the user is struggling *because of* Hegel rather than being helped by it.
+- **Tuning suggestions**: Concrete changes to thresholds, patterns, or prompt templates in `src/analyzers/` or `src/prompts.ts` that would improve accuracy.
+
+## Rules
+
+- If the log/state has no concerns and the interaction was clean, say "Hegel: Clean turn, no concerns." — one line.
+- Summarize concerns with your judgment (agree / false positive / needs tuning). Don't copy-paste raw concern objects.
+- Be honest — if Hegel correctly flagged something, say so. The goal is calibration, not dismissal.
+- Keep the section to 3-6 lines. Expand only if there's a significant finding.

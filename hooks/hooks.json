@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node ../dist/hook.js"
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "node ../dist/hook.js",
+        "timeout": 5
+      }
+    ],
+    "afterAgentResponse": [
+      {
+        "command": "node ../dist/hook.js"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node ../dist/hook.js"
+      }
+    ],
+    "preCompact": [
+      {
+        "command": "node ../dist/hook.js"
+      }
+    ],
+    "stop": [
+      {
+        "command": "node ../dist/hook.js",
+        "loop_limit": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "hegel.model": "composer-2-fast",
+    "hegel.llmAnalysis": true,
+    "hegel.strictness": "balanced",
+    "hegel.observeOnly": false,
+    "hegel.llmTimeout": 15
+}

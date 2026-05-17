@@ -1,0 +1,20 @@
+{
+  "name": "hegel",
+  "version": "0.1.0",
+  "description": "Dialectical companion for AI-assisted development — provides real-time critical thinking oversight for your Cursor IDE coding sessions",
+  "author": {
+    "name": "Artur Lazarev"
+  },
+  "homepage": "https://github.com/CreatoR682/hegel",
+  "repository": "https://github.com/CreatoR682/hegel",
+  "license": "MIT",
+  "keywords": [
+    "critical-thinking",
+    "code-review",
+    "prompt-quality",
+    "session-oversight",
+    "dialectical",
+    "ai-companion"
+  ],
+  "hooks": "../hooks/hooks.json"
+}

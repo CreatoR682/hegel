@@ -1,0 +1,59 @@
+{
+  "name": "@hegel-dev/companion",
+  "version": "1.0.20",
+  "description": "Dialectical companion for AI-assisted development — real-time critical thinking oversight for Cursor IDE sessions",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc --watch",
+    "dev:watch": "node dist/dev-watch.js",
+    "hook": "node dist/hook.js",
+    "setup": "node dist/setup.js",
+    "mcp": "node dist/mcp.js",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "bin": {
+    "hegel-companion": "./dist/setup.js",
+    "hegel-mcp": "./dist/mcp.js"
+  },
+  "keywords": [
+    "cursor",
+    "cursor-plugin",
+    "ai-assistant",
+    "critical-thinking",
+    "code-review",
+    "dialectical"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CreatoR682/hegel.git"
+  },
+  "author": "Hegel Contributors",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "hegel.config.schema.json",
+    "hegel-vscode/*.vsix"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@emnapi/core": "^1.10.0",
+    "@emnapi/runtime": "^1.10.0",
+    "@types/node": "^25.6.0",
+    "@vitest/coverage-v8": "^4.1.5",
+    "typescript": "^6.0",
+    "vitest": "^4.1.5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  }
+}

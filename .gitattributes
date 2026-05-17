@@ -1,0 +1,13 @@
+﻿# Normalize line endings for all text files.
+# Repo-wide convention: LF in the repo, native on checkout disabled so
+# Windows contributors don't see CRLF/LF warnings on every commit.
+* text=auto eol=lf
+
+# Known binary assets — never diff, never normalize.
+*.vsix binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+

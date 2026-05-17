@@ -1,0 +1,17 @@
+﻿.hegel-state/
+coverage/
+node_modules/
+.DS_Store
+.env
+.env.*
+*.log
+
+# Transient build artifact
+hegel-vscode/hegel-schema.json
+
+# Transient commit message files
+.git-commit-msg.txt
+
+# Local project status
+PROJECT-STATUS.md
+
