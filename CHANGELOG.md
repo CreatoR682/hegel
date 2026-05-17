@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.23] - 2026-05-17
+- chore: Richer npm `description` and `keywords` (MCP, prompt quality, open source) now that the GitHub repository is public.
+
 ## [1.0.22] - 2026-05-17
 - docs: Refresh README and CONTRIBUTING for npm version source-of-truth, source-repo portable paths, and VSIX install flow.
 - chore: Add `homepage` and `bugs` to `package.json`; align `.cursor-plugin/plugin.json` version with the shipped release.

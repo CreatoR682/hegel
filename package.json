@@ -1,7 +1,7 @@
 {
   "name": "@hegel-dev/companion",
-  "version": "1.0.22",
-  "description": "Dialectical companion for AI-assisted development — real-time critical thinking oversight for Cursor IDE sessions",
+  "version": "1.0.23",
+  "description": "Open-source Cursor toolkit: local hooks, MCP server & sidebar extension for dialectical prompt and response oversight — privacy-first session quality.",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,13 @@
   "keywords": [
     "cursor",
     "cursor-plugin",
+    "mcp",
+    "model-context-protocol",
+    "vscode-extension",
     "ai-assistant",
+    "llm",
+    "prompt-quality",
+    "session-oversight",
     "critical-thinking",
     "code-review",
     "dialectical"

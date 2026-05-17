@@ -2,7 +2,7 @@
   "name": "hegel-companion",
   "displayName": "Hegel — Dialectical Companion",
   "description": "Real-time session oversight dashboard for Hegel hooks. Shows prompt quality, response concerns, and session health.",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "publisher": "hegel",
   "engines": {
     "vscode": "^1.105.0"

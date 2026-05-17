@@ -1,6 +1,6 @@
 {
   "name": "hegel",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Dialectical companion for AI-assisted development — provides real-time critical thinking oversight for your Cursor IDE coding sessions",
   "author": {
     "name": "Artur Lazarev"
